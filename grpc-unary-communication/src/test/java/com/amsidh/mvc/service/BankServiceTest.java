@@ -1,18 +1,21 @@
 package com.amsidh.mvc.service;
 
 import com.amsidh.mvc.model.AccountBalanceRequest;
+import com.amsidh.mvc.model.AccountBalanceResponse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class BankServiceTest extends AbstractTest {
+
     @Test
     public void getBalanceTest() {
-        var request = AccountBalanceRequest.newBuilder()
+        AccountBalanceRequest accountBalanceRequest = AccountBalanceRequest
+                .newBuilder()
                 .setAccountNumber(1)
                 .build();
-        var balance = this.bankBlockingStub.getAccountBalance(request);
-        System.out.printf("unary balance received: %d%n", balance.getBalance());
-        Assertions.assertEquals(100, balance.getBalance());
+        final AccountBalanceResponse accountBalanceResponse = this.bankServiceBlockingStub.getAccountBalance(accountBalanceRequest);
+        System.out.printf("Unary balance received %d%n", accountBalanceResponse.getBalance());
+        Assertions.assertNotNull(accountBalanceResponse);
+        Assertions.assertEquals(100, accountBalanceResponse.getBalance());
     }
-
 }

@@ -9,14 +9,12 @@ import org.junit.jupiter.api.BeforeAll;
 public abstract class AbstractTest extends AbstractChannelTest {
 
     private final CustomGrpcServer grpcServer = CustomGrpcServer.createCustomGrpcServer(new BankService());
-    protected BankServiceGrpc.BankServiceStub bankStub;
-    protected BankServiceGrpc.BankServiceBlockingStub bankBlockingStub;
+    protected BankServiceGrpc.BankServiceBlockingStub bankServiceBlockingStub;
 
     @BeforeAll
     public void setup() {
         this.grpcServer.start();
-        this.bankStub = BankServiceGrpc.newStub(channel);
-        this.bankBlockingStub = BankServiceGrpc.newBlockingStub(channel);
+        this.bankServiceBlockingStub = BankServiceGrpc.newBlockingStub(managedChannel);
     }
 
     @AfterAll
