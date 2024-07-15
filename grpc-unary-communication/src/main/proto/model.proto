@@ -12,3 +12,8 @@ message AccountBalanceResponse{
   int32 balance = 2;
 }
 
+message AllAccountsResponse{
+  repeated AccountBalanceResponse account_balance_response = 1;
+}
+
+message NoParam{}

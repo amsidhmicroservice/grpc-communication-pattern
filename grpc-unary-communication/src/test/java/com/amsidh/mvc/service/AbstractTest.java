@@ -10,11 +10,13 @@ public abstract class AbstractTest extends AbstractChannelTest {
 
     private final CustomGrpcServer grpcServer = CustomGrpcServer.createCustomGrpcServer(new BankService());
     protected BankServiceGrpc.BankServiceBlockingStub bankServiceBlockingStub;
+    protected BankServiceGrpc.BankServiceStub bankServiceStub;
 
     @BeforeAll
     public void setup() {
         this.grpcServer.start();
         this.bankServiceBlockingStub = BankServiceGrpc.newBlockingStub(managedChannel);
+        this.bankServiceStub = BankServiceGrpc.newStub(managedChannel);
     }
 
     @AfterAll

@@ -14,4 +14,9 @@ public class AccountRepository {
         return IN_MEMORY_MAP.get(accountNumber);
     }
 
+
+    public static Map<Integer, Integer> getAccounts() {
+        return IN_MEMORY_MAP;
+    }
+
 }

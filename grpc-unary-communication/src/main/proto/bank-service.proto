@@ -6,6 +6,9 @@ import "model.proto";
 
 service BankService{
 
+  //unary API
   rpc GetAccountBalance(AccountBalanceRequest) returns (AccountBalanceResponse);
 
+  //Unary API
+  rpc GetAllAccounts(NoParam) returns (AllAccountsResponse);
 }
