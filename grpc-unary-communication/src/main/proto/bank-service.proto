@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.amsidh.mvc.service";
+import "model.proto";
+
+service BankService{
+
+  rpc GetAccountBalance(AccountBalanceRequest) returns (AccountBalanceResponse);
+
+}
