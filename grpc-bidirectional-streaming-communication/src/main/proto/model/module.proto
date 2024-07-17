@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.amsidh.mvc.model";
+message AccountBalance{
+  int32 account_number = 1;
+  int32 balance = 2;
+}
+
+enum TransferStatus{
+  REJECTED = 0;
+  COMPLETED = 1;
+}
+message FundTransferResponse{
+  TransferStatus transfer_status = 1;
+  AccountBalance fromAccountBalance = 2;
+  AccountBalance toAccountBalance = 3;
+
+}
+
+
+message FundTransferRequest {
+  int32 from_account_number = 1;
+  int32 to_account_number = 2;
+  int32 amount = 3;
+}
+

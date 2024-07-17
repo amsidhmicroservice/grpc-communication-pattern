@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.amsidh.mvc.model";
+
+message AccountBalanceRequest{
+  int32 account_number = 1;
+}
+
+message AccountBalanceResponse{
+  int32 account_number = 1;
+  int32 balance = 2;
+}
+
+message AllAccountsResponse{
+  repeated AccountBalanceResponse account_balance_response = 1;
+}
+
+message NoParam{}

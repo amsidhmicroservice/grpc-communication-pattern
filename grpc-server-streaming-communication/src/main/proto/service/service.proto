@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.amsidh.mvc.service";
+import "model/module.proto";
+
+service BankService{
+  //Server Streaming
+  rpc withdraw(AccountBalanceRequest) returns (stream Money);
+}
